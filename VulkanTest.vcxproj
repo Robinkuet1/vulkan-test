@@ -135,12 +135,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\gfx\device.c" />
     <ClCompile Include="src\gfx\instance.c" />
     <ClCompile Include="src\main.c" />
     <ClCompile Include="src\utils\darray.c" />
     <ClCompile Include="src\utils\file.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\gfx\device.h" />
     <ClInclude Include="src\gfx\instance.h" />
     <ClInclude Include="src\utils\darray.h" />
     <ClInclude Include="src\utils\defines.h" />

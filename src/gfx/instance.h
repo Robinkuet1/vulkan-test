@@ -6,8 +6,9 @@
 typedef struct
 {
 	VkInstance instance;
-	VkPhysicalDevice physicalDevice;
-	VkDevice device;
+	VkDebugUtilsMessengerEXT debugMessenger;
+
+	struct Device* device;
 } Instance;
 
 typedef struct
@@ -37,14 +38,15 @@ typedef struct
 	Extension_options extension_options;
 	Layer_options layer_options;
 	VkInstanceCreateFlags flags;
+	u8 enableValidationLayers;
 } Instance_options;
 
 /**
  * \brief creates a new vulkan instance, selects a physical device and creates a logical device
+ * \param instance pointer to the new instance
  * \param options options for the new instance and device
- * \return a handler to the instance and the device
  */
-Instance vulkan_instance_create(Instance_options options);
+void vulkan_instance_create(Instance* instance, Instance_options options);
 
 /**
  * \brief destroys a vulkan instance
@@ -67,11 +69,11 @@ void vulkan_instance_layers_print(void);
  * \param extensionName name of the extension
  * \return 1 if extension supported
  */
-u8 vulkan_instance_extensions_supported(char* extensionName);
+u8 vulkan_instance_extensions_supported(const char* extensionName);
 
 /**
  * \brief checks if a layer is supported on this instance
  * \param layerName name of the layer
  * \return 1 if layer supported
  */
-u8 vulkan_instance_layer_supported(char* layerName);
+u8 vulkan_instance_layer_supported(const char* layerName);
