@@ -1,5 +1,5 @@
 #pragma once
-#include "defines.h"
+#include "core/core.h"
 
 //---------8bit--------------
 typedef struct

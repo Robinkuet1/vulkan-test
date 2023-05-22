@@ -2,7 +2,7 @@
 
 #include <vulkan/vulkan.h>
 
-#include "../utils/defines.h"
+#include "core/core.h"
 #include "instance.h"
 
 /**
@@ -14,6 +14,14 @@ typedef struct
 	VkPhysicalDeviceProperties properties;
 	VkPhysicalDeviceFeatures features;
 } PhysicalDevice;
+
+/**
+ * \brief contains all the required components to interface with a logical vulkan device
+ */
+typedef struct
+{
+	VkDevice device;
+} Device;
 
 /**
  * \brief returns an array of all Vulkan capable devices on this instance
@@ -43,3 +51,28 @@ u8 vulkan_physical_device_is_suitable(in PhysicalDevice device);
  * \return a score based on many different parameters
  */
 f64 vulkan_physical_device_score(in PhysicalDevice device);
+
+/**
+ * \brief returns the queue family index
+ * \param device handle for a vulkan physical device
+ * \param index returns the index for the vulkan family queue
+ */
+result vulkan_physical_device_find_queue_family(in const PhysicalDevice* device, out u32* index);
+
+/**
+ * \brief enumerates over all devices and returns the best fitting one
+ * \param instance vulkan instance
+ */
+result vulkan_physical_device_get_best(in Instance* instance, out PhysicalDevice* device);
+
+/**
+ * \brief creates a vulkan logical device from a physical device
+ * \param physicalDevice handle for a vulkan physical device
+ */
+result vulkan_logical_device_create(in const PhysicalDevice* physicalDevice, out Device* device);
+
+/**
+ * \brief destroys a vulkan logical device
+ * \param device device to destroy
+ */
+void vulkan_logical_device_destroy(in Device* device);

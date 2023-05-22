@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "globals.h"
+
 
 static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(
 	VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
@@ -77,7 +79,7 @@ void vulkan_instance_create(Instance* instance, Instance_options options)
 	instanceCreateInfo.ppEnabledLayerNames = options.layer_options.layerNames;
 	instanceCreateInfo.flags = options.flags;
 
-	if (options.enableValidationLayers)
+	if (enable_validation)
 	{
 		VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
 		populateDebugMessengerCreateInfo(&debugCreateInfo);
@@ -95,7 +97,7 @@ void vulkan_instance_create(Instance* instance, Instance_options options)
 		printf("failed to initialize vulkan with code %d", result);
 	}
 
-	if (options.enableValidationLayers)
+	if (enable_validation)
 	{
 		create_validation_layers(instance);
 	}

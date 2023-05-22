@@ -3,13 +3,11 @@
 #include "utils/file.h"
 
 #include "gfx/instance.h"
+#include "gfx/globals.h"
 #include "gfx/device.h"
 
 int main(void)
 {
-	char const* enabled_extensions = "VK_EXT_debug_utils";
-	char const* enabled_layers = "VK_LAYER_KHRONOS_validation";
-
 	Instance instance;
 	vulkan_instance_create(&instance, (Instance_options){
 		{
@@ -27,11 +25,16 @@ int main(void)
 			1,
 			&enabled_layers
 		},
-		0,
-		1
+		0
 	});
 
 	vulkan_physical_device_print(&instance);
+
+	PhysicalDevice physicalDevice;
+	vulkan_physical_device_get_best(&instance, &physicalDevice);
+
+	Device device;
+	vulkan_logical_device_create(&physicalDevice, &device);
 
 	return 0;
 }

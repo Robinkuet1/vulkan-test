@@ -35,7 +35,7 @@
     <ClInclude Include="src\utils\darray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\defines.h">
+    <ClInclude Include="src\core\core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\file.h">
@@ -45,6 +45,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\gfx\device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\enums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gfx\globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

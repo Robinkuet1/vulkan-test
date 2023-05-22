@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../utils/defines.h"
+#include "core/core.h"
 #include <vulkan/vulkan.h>
 
 typedef struct
@@ -8,6 +8,7 @@ typedef struct
 	VkInstance instance;
 	VkDebugUtilsMessengerEXT debugMessenger;
 
+	struct PhysicalDevice* physicalDevice;
 	struct Device* device;
 } Instance;
 
@@ -38,7 +39,6 @@ typedef struct
 	Extension_options extension_options;
 	Layer_options layer_options;
 	VkInstanceCreateFlags flags;
-	u8 enableValidationLayers;
 } Instance_options;
 
 /**
