@@ -30,6 +30,12 @@
     <ClCompile Include="src\gfx\device.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\window.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\input.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\utils\darray.h">
@@ -54,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\gfx\globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

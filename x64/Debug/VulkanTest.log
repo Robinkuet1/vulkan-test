@@ -1,2 +1,8 @@
-﻿  device.c
+﻿  input.c
+  window.c
+C:\dev\VulkanTest\src\core\window.c(37,38): warning C4028: formal parameter 1 different from declaration
+  device.c
+  instance.c
+  main.c
+  Generating Code...
   VulkanTest.vcxproj -> C:\dev\VulkanTest\x64\Debug\VulkanTest.exe

@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include "core/input.h"
+
 #include "utils/darray.h"
 #include "utils/file.h"
 
@@ -8,6 +10,9 @@
 
 int main(void)
 {
+	Window window;
+	core_window_create((window_options){ "Test", 800, 800 }, &window);
+
 	Instance instance;
 	vulkan_instance_create(&instance, (Instance_options){
 		{
@@ -35,6 +40,5 @@ int main(void)
 
 	Device device;
 	vulkan_logical_device_create(&physicalDevice, &device);
-
 	return 0;
 }

@@ -7,6 +7,7 @@ typedef struct
 {
 	VkInstance instance;
 	VkDebugUtilsMessengerEXT debugMessenger;
+	VkSurfaceKHR surface;
 
 	struct PhysicalDevice* physicalDevice;
 	struct Device* device;

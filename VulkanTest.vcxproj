@@ -137,6 +137,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\core\input.c" />
+    <ClCompile Include="src\core\window.c" />
     <ClCompile Include="src\gfx\device.c" />
     <ClCompile Include="src\gfx\instance.c" />
     <ClCompile Include="src\main.c" />
@@ -144,6 +146,8 @@
     <ClCompile Include="src\utils\file.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\core\input.h" />
+    <ClInclude Include="src\core\window.h" />
     <ClInclude Include="src\gfx\device.h" />
     <ClInclude Include="src\gfx\globals.h" />
     <ClInclude Include="src\gfx\instance.h" />

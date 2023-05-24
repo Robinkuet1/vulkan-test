@@ -21,7 +21,17 @@ typedef struct
 typedef struct
 {
 	VkDevice device;
+	VkQueue graphicsQueue;
 } Device;
+
+typedef struct
+{
+	u32 graphicsFamily;
+	u8 graphicsFamilyFound;
+
+	u32 presentFamily;
+	u8 presentFamilyFound;
+} QueueFamilyIndices;
 
 /**
  * \brief returns an array of all Vulkan capable devices on this instance
@@ -76,3 +86,5 @@ result vulkan_logical_device_create(in const PhysicalDevice* physicalDevice, out
  * \param device device to destroy
  */
 void vulkan_logical_device_destroy(in Device* device);
+
+u8 vulkan_queue_family_index_completed(in const QueueFamilyIndices* indices);

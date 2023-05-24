@@ -161,6 +161,8 @@ result vulkan_logical_device_create(const PhysicalDevice* physicalDevice, Device
 	createInfo.queueCreateInfoCount = 1;
 	createInfo.pEnabledFeatures = &deviceFeatures;
 	createInfo.enabledExtensionCount = 0;
+	createInfo.flags = 0;
+	createInfo.pNext = NULL;
 
 	if (enable_validation) {
 		createInfo.enabledLayerCount = 1;
@@ -171,13 +173,13 @@ result vulkan_logical_device_create(const PhysicalDevice* physicalDevice, Device
 		createInfo.ppEnabledLayerNames = NULL;
 	}
 
-	device = malloc(sizeof(Device));
-	VkDevice tmp;
-	if(vkCreateDevice(physicalDevice->physicalDevice, &createInfo, NULL, &tmp) != VK_SUCCESS)
+	if(vkCreateDevice(physicalDevice->physicalDevice, &createInfo, NULL, &device->device) != VK_SUCCESS)
 	{
 		printf("failed to create device\n");
 		return UNKNOWN;
 	}
+
+	vkGetDeviceQueue(device->device, index, 0, &device->graphicsQueue);
 	return OK;
 }
 
@@ -185,3 +187,9 @@ void vulkan_logical_device_destroy(Device* device)
 {
 	vkDestroyDevice(device->device, NULL);
 }
+
+u8 vulkan_queue_family_index_completed(const QueueFamilyIndices* indices)
+{
+	return indices->graphicsFamilyFound && indices->presentFamilyFound;
+}
+
